@@ -15,6 +15,7 @@
 		500E5A97252CA1AA0008A74C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 500E5A95252CA1AA0008A74C /* LaunchScreen.storyboard */; };
 		500E5AA2252CA1AA0008A74C /* FourColorBoxesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 500E5AA1252CA1AA0008A74C /* FourColorBoxesTests.swift */; };
 		500E5AAD252CA1AA0008A74C /* FourColorBoxesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 500E5AAC252CA1AA0008A74C /* FourColorBoxesUITests.swift */; };
+		500E5ABE252CB01F0008A74C /* ColoredSquare.swift in Sources */ = {isa = PBXBuildFile; fileRef = 500E5ABD252CB01F0008A74C /* ColoredSquare.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		500E5AA8252CA1AA0008A74C /* FourColorBoxesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FourColorBoxesUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		500E5AAC252CA1AA0008A74C /* FourColorBoxesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FourColorBoxesUITests.swift; sourceTree = "<group>"; };
 		500E5AAE252CA1AA0008A74C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		500E5ABD252CB01F0008A74C /* ColoredSquare.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColoredSquare.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +108,7 @@
 				500E5A93252CA1AA0008A74C /* Assets.xcassets */,
 				500E5A95252CA1AA0008A74C /* LaunchScreen.storyboard */,
 				500E5A98252CA1AA0008A74C /* Info.plist */,
+				500E5ABD252CB01F0008A74C /* ColoredSquare.swift */,
 			);
 			path = FourColorBoxes;
 			sourceTree = "<group>";
@@ -261,6 +264,7 @@
 				500E5A8F252CA1A90008A74C /* ViewController.swift in Sources */,
 				500E5A8B252CA1A90008A74C /* AppDelegate.swift in Sources */,
 				500E5A8D252CA1A90008A74C /* SceneDelegate.swift in Sources */,
+				500E5ABE252CB01F0008A74C /* ColoredSquare.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
