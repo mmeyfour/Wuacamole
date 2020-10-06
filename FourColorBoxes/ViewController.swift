@@ -10,6 +10,7 @@ import UIKit
 class ViewController: UIViewController {
     
     // MARK: Outlets
+    
     @IBOutlet weak var upLeftButton: UIButton!
     @IBOutlet weak var upRightButton: UIButton!
     @IBOutlet weak var downLeftButton: UIButton!
@@ -18,7 +19,9 @@ class ViewController: UIViewController {
     @IBOutlet weak var changeDireccionButton: UIButton!
     
     // MARK: State
+    
     var clockWise = true
+    var squareColor = ColoredSquare.init(location: .notSelected, isToggled: false, clockWise: true)
     
     // MARK: Lifecycle
     
@@ -30,11 +33,20 @@ class ViewController: UIViewController {
     // MARK: Helpers
     
     func updateUI() {
-        if clockWise {
-            textLable.text = "Go clockwise !!"
-        } else {
-            textLable.text = "Go counterclockwise !!"
+        clockWise ? (textLable.text = "Go clockwise !!") : (textLable.text = "Go counterclockwise !!")
+        
+        switch squareColor.location {
+        case .upLeft:
+            squareColor.clockWise ? (upRightButton.backgroundColor = getRandomColor()) : (downLeftButton.backgroundColor = getRandomColor())
+        case .upRight:
+            squareColor.clockWise ? (downRightButton.backgroundColor = getRandomColor()) : (upLeftButton.backgroundColor = getRandomColor())
+        case .downLeft:
+            squareColor.clockWise ? (upLeftButton.backgroundColor = getRandomColor()) : (downRightButton.backgroundColor = getRandomColor())
+        case .downRight:
+            squareColor.clockWise ? (downLeftButton.backgroundColor = getRandomColor()) : (upRightButton.backgroundColor = getRandomColor())
+        default :break
         }
+        squareColor = ColoredSquare.init(location: .notSelected, isToggled: false, clockWise: clockWise)
     }
     
     func getRandomColor() -> UIColor {
@@ -49,35 +61,22 @@ class ViewController: UIViewController {
     // MARK: Action
     
     @IBAction func didTappedUpLeftButton(_ sender: UIButton) {
-        if clockWise {
-            upRightButton.backgroundColor = getRandomColor()
-        } else {
-            downLeftButton.backgroundColor = getRandomColor()
-        }
+        squareColor = ColoredSquare.init(location: .upLeft, isToggled: true, clockWise: clockWise)
+        updateUI()
     }
     @IBAction func didTappedUpRightButton(_ sender: UIButton) {
-        if clockWise {
-            downRightButton.backgroundColor = getRandomColor()
-        } else {
-            upLeftButton.backgroundColor = getRandomColor()
-        }
+        squareColor = ColoredSquare.init(location: .upRight, isToggled: true, clockWise: clockWise)
+        updateUI()
     }
     @IBAction func didTappedDownLeftButton(_ sender: UIButton) {
-        if clockWise {
-            upLeftButton.backgroundColor = getRandomColor()
-        } else {
-            downRightButton.backgroundColor = getRandomColor()
-        }
+        squareColor = ColoredSquare.init(location: .downLeft, isToggled: true, clockWise: clockWise)
+        updateUI()
     }
     @IBAction func didTappedDownRightButton(_ sender: UIButton) {
-        if clockWise {
-            downLeftButton.backgroundColor = getRandomColor()
-        } else {
-            upRightButton.backgroundColor = getRandomColor()
-        }
+        squareColor = ColoredSquare.init(location: .downRight, isToggled: true, clockWise: clockWise)
+        updateUI()
     }
     @IBAction func didTappedChangeDirecction(_ sender: UIButton) {
-        print(clockWise)
         clockWise.toggle()
         updateUI()
     }

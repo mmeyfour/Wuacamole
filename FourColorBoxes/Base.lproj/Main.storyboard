@@ -28,7 +28,6 @@
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="uUc-72-n1W" secondAttribute="height" multiplier="1:1" id="ljI-eI-q7m"/>
                                                 </constraints>
-                                                <state key="normal" title="Button"/>
                                                 <connections>
                                                     <action selector="didTappedUpLeftButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="wGh-yW-Q0e"/>
                                                 </connections>
@@ -39,7 +38,6 @@
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="ULC-sO-Z5H" secondAttribute="height" multiplier="1:1" id="KHC-jX-xYC"/>
                                                 </constraints>
-                                                <state key="normal" title="Button"/>
                                                 <connections>
                                                     <action selector="didTappedDownLeftButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="q6V-qk-bYl"/>
                                                 </connections>
@@ -55,7 +53,6 @@
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="Bzd-ih-MUJ" secondAttribute="height" multiplier="1:1" id="xC2-o1-Kvh"/>
                                                 </constraints>
-                                                <state key="normal" title="Button"/>
                                                 <connections>
                                                     <action selector="didTappedUpRightButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="s4a-AF-qMT"/>
                                                 </connections>
@@ -66,7 +63,6 @@
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="tbW-eA-R0M" secondAttribute="height" multiplier="1:1" id="jUd-r4-jlz"/>
                                                 </constraints>
-                                                <state key="normal" title="Button"/>
                                                 <connections>
                                                     <action selector="didTappedDownRightButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Qtd-og-TG4"/>
                                                 </connections>
