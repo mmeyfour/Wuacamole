@@ -14,6 +14,7 @@ enum ColoredSquareLocation {
     case downRight
     case notSelected
 }
+
 enum color {
     case RandomColorOne
     case RandomColorTwo
