@@ -97,7 +97,6 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="ibH-0j-2h2" firstAttribute="top" secondItem="tK1-LL-hr6" secondAttribute="bottom" constant="16" id="24D-XY-5Ox"/>
-                            <constraint firstItem="tK1-LL-hr6" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="191:448" id="6Zv-fH-iKz"/>
                             <constraint firstItem="9vd-Bx-L95" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="V78-ff-OrG"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ibH-0j-2h2" secondAttribute="trailing" constant="16" id="dM6-jK-vX5"/>
                             <constraint firstItem="tK1-LL-hr6" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="n8w-te-ZzD"/>

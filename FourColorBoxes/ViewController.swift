@@ -33,7 +33,7 @@ class ViewController: UIViewController {
         if clockWise {
             textLable.text = "Go clockwise !!"
         } else {
-            textLable.text = "Go counterwise !!"
+            textLable.text = "Go counterclockwise !!"
         }
     }
     
