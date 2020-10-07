@@ -58,7 +58,7 @@
                                 <rect key="frame" x="16" y="497" width="382" height="30"/>
                                 <color key="backgroundColor" systemColor="systemOrangeColor"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="Change Direction">
+                                <state key="normal" title="Reset !">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
@@ -129,15 +129,38 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vOm-Ov-lhD">
+                                <rect key="frame" x="16" y="543" width="382" height="20.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PcK-vy-mMR">
+                                        <rect key="frame" x="0.0" y="0.0" width="191" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jvd-rm-diC">
+                                        <rect key="frame" x="191" y="0.0" width="191" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="PcK-vy-mMR" firstAttribute="width" secondItem="jvd-rm-diC" secondAttribute="width" id="qg1-Cz-kYA"/>
+                                </constraints>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="ibH-0j-2h2" firstAttribute="top" secondItem="tK1-LL-hr6" secondAttribute="bottom" constant="16" id="24D-XY-5Ox"/>
+                            <constraint firstItem="vOm-Ov-lhD" firstAttribute="top" secondItem="9vd-Bx-L95" secondAttribute="bottom" constant="16" id="C1y-5G-RqY"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ZuE-QS-0uq" secondAttribute="trailing" constant="16" id="Esw-yK-qeR"/>
+                            <constraint firstItem="vOm-Ov-lhD" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="Iig-Cm-Zo5"/>
                             <constraint firstItem="ZuE-QS-0uq" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="16" id="PLl-gN-j1L"/>
                             <constraint firstItem="9vd-Bx-L95" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="V78-ff-OrG"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ibH-0j-2h2" secondAttribute="trailing" constant="16" id="dM6-jK-vX5"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="vOm-Ov-lhD" secondAttribute="trailing" constant="16" id="eSJ-RJ-6ik"/>
                             <constraint firstItem="tK1-LL-hr6" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="n8w-te-ZzD"/>
                             <constraint firstItem="ibH-0j-2h2" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="ocO-GC-vlp"/>
                             <constraint firstItem="9vd-Bx-L95" firstAttribute="top" secondItem="ibH-0j-2h2" secondAttribute="bottom" constant="16" id="p3i-Ep-lpS"/>
@@ -153,11 +176,13 @@
                         <outlet property="downLeftMole" destination="2ho-ko-QOX" id="NLr-wH-OKq"/>
                         <outlet property="downRightButton" destination="tbW-eA-R0M" id="bAW-HU-yhq"/>
                         <outlet property="downRightMole" destination="8Xq-PK-BF3" id="vDT-QZ-KV5"/>
+                        <outlet property="loseLabel" destination="jvd-rm-diC" id="BDW-SX-RxY"/>
                         <outlet property="textLable" destination="ibH-0j-2h2" id="CUj-D7-ZN7"/>
                         <outlet property="upLeftButton" destination="uUc-72-n1W" id="CYu-oB-tW6"/>
                         <outlet property="upLeftMole" destination="T7l-Sm-cBT" id="tM7-jd-qbA"/>
                         <outlet property="upRightButton" destination="Bzd-ih-MUJ" id="LqZ-qH-5Ng"/>
                         <outlet property="upRightMole" destination="xui-N1-oKc" id="6HF-4A-Oct"/>
+                        <outlet property="winLabel" destination="PcK-vy-mMR" id="8Zp-Xe-JWI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

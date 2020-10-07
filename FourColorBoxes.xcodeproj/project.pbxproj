@@ -51,6 +51,7 @@
 		500E5AAC252CA1AA0008A74C /* FourColorBoxesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FourColorBoxesUITests.swift; sourceTree = "<group>"; };
 		500E5AAE252CA1AA0008A74C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		500E5ABD252CB01F0008A74C /* ColoredSquare.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColoredSquare.swift; sourceTree = "<group>"; };
+		500E5AD1252DADDE0008A74C /* FourColorBoxes.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FourColorBoxes.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +102,7 @@
 		500E5A89252CA1A90008A74C /* FourColorBoxes */ = {
 			isa = PBXGroup;
 			children = (
+				500E5AD1252DADDE0008A74C /* FourColorBoxes.entitlements */,
 				500E5A8A252CA1A90008A74C /* AppDelegate.swift */,
 				500E5A8C252CA1A90008A74C /* SceneDelegate.swift */,
 				500E5A8E252CA1A90008A74C /* ViewController.swift */,
@@ -440,6 +442,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = FourColorBoxes/FourColorBoxes.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = UCS9ZZ9J83;
 				INFOPLIST_FILE = FourColorBoxes/Info.plist;
@@ -447,8 +450,9 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = es.mmeyfour.Prueba.FourColorBoxes;
+				PRODUCT_BUNDLE_IDENTIFIER = es.mmeyfour.wuacamole;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -459,6 +463,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = FourColorBoxes/FourColorBoxes.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = UCS9ZZ9J83;
 				INFOPLIST_FILE = FourColorBoxes/Info.plist;
@@ -466,8 +471,9 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = es.mmeyfour.Prueba.FourColorBoxes;
+				PRODUCT_BUNDLE_IDENTIFIER = es.mmeyfour.wuacamole;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

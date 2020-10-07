@@ -21,60 +21,60 @@ class ViewController: UIViewController {
     @IBOutlet weak var upRightMole: UIImageView!
     @IBOutlet weak var downLeftMole: UIImageView!
     @IBOutlet weak var downRightMole: UIImageView!
+    @IBOutlet weak var winLabel: UILabel!
+    @IBOutlet weak var loseLabel: UILabel!
     
     // MARK: State
     
     var clockWise = true
     var squareColor = ColoredSquare.init(location: .notSelected, isToggled: false, clockWise: true)
-    var rightMoleTop = false
-    var leftMoleTop = false
+    var leftUpMole = false
+    var rightUpMole = false
     var leftDownMole = false
-    var righDownMole = false
+    var rightDownMole = false
+    var winCounter = 0
+    var loseCounter = 0
     // MARK: Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         updateUI()
-    
+        
     }
-   
+    
     // MARK: Helpers
     
     func updateUI() {
         
         let number = Int.random(in: 1...4)
+        clockWise = Bool.random()
+        rightUpMole = false
+        leftUpMole = false
+        rightDownMole = false
+        leftDownMole = false
+        self.upLeftButton.setBackgroundImage(nil, for: .normal)
+        self.upRightButton.setBackgroundImage(nil, for: .normal)
+        self.downRightButton.setBackgroundImage(nil, for: .normal)
+        self.downLeftButton.setBackgroundImage(nil, for: .normal)
+        winLabel.text = "\(winCounter)"
+        loseLabel.text = "\(loseCounter)"
         switch number {
         case 1:
             self.upLeftButton.setBackgroundImage(#imageLiteral(resourceName: "mole"), for: .normal)
-            self.upRightButton.setBackgroundImage(nil, for: .normal)
-            self.downRightButton.setBackgroundImage(nil, for: .normal)
-            self.downLeftButton.setBackgroundImage(nil, for: .normal)
-            leftMoleTop = true
+            leftUpMole = true
         case 2:
-            self.upLeftButton.setBackgroundImage(nil, for: .normal)
             self.upRightButton.setBackgroundImage(#imageLiteral(resourceName: "mole"), for: .normal)
-            self.downRightButton.setBackgroundImage(nil, for: .normal)
-            self.downLeftButton.setBackgroundImage(nil, for: .normal)
-            rightMoleTop = true
+            rightUpMole = true
         case 3:
-            self.upLeftButton.setBackgroundImage(nil, for: .normal)
-            self.upRightButton.setBackgroundImage(nil, for: .normal)
-            self.downRightButton.setBackgroundImage(nil, for: .normal)
             self.downLeftButton.setBackgroundImage(#imageLiteral(resourceName: "mole"), for: .normal)
             leftDownMole = true
         case 4:
-            self.upLeftButton.setBackgroundImage(nil, for: .normal)
-            self.upRightButton.setBackgroundImage(nil, for: .normal)
             self.downRightButton.setBackgroundImage(#imageLiteral(resourceName: "mole"), for: .normal)
-            self.downLeftButton.setBackgroundImage(nil, for: .normal)
-            righDownMole = true
+            rightDownMole = true
             
         default:
-            self.downLeftButton.setBackgroundImage(nil, for: .normal)
-            self.upRightButton.setBackgroundImage(nil, for: .normal)
-            self.downRightButton.setBackgroundImage(nil, for: .normal)
-            self.upLeftButton.setBackgroundImage(nil, for: .normal)
+            break
             
         }
         clockWise ? (textLable.text = "Go clockwise !!") : (textLable.text = "Go counterclockwise !!")
@@ -106,32 +106,51 @@ class ViewController: UIViewController {
     
     @IBAction func didTappedUpLeftButton(_ sender: UIButton) {
         squareColor = ColoredSquare.init(location: .upLeft, isToggled: true, clockWise: clockWise)
-        
-        if rightMoleTop && clockWise || (leftDownMole && clockWise == false) {
+        if (rightUpMole && clockWise) || (leftDownMole && !clockWise) {
             print("acierto")
+            winCounter += 1
         } else {
             print("fallo")
+            loseCounter += 1
         }
-        rightMoleTop = false
-        leftDownMole = false
         updateUI()
-        
-        
     }
     @IBAction func didTappedUpRightButton(_ sender: UIButton) {
         squareColor = ColoredSquare.init(location: .upRight, isToggled: true, clockWise: clockWise)
+        if (rightDownMole && clockWise) || (leftUpMole && !clockWise) {
+            print("acierto")
+            winCounter += 1
+        } else {
+            print("fallo")
+            loseCounter += 1
+        }
         updateUI()
     }
     @IBAction func didTappedDownLeftButton(_ sender: UIButton) {
         squareColor = ColoredSquare.init(location: .downLeft, isToggled: true, clockWise: clockWise)
+        if  (leftUpMole && clockWise) || (rightDownMole && !clockWise) {
+            print("acierto")
+            winCounter += 1
+        } else {
+            print("fallo")
+            loseCounter += 1
+        }
         updateUI()
     }
     @IBAction func didTappedDownRightButton(_ sender: UIButton) {
         squareColor = ColoredSquare.init(location: .downRight, isToggled: true, clockWise: clockWise)
+        if  (leftDownMole && clockWise) || (rightUpMole && !clockWise) {
+            print("acierto")
+            winCounter += 1
+        } else {
+            print("fallo")
+            loseCounter += 1
+        }
         updateUI()
     }
     @IBAction func didTappedChangeDirecction(_ sender: UIButton) {
-        clockWise.toggle()
+        winCounter = 0
+        loseCounter = 0
         updateUI()
     }
     
