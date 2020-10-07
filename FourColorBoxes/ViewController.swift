@@ -1,6 +1,6 @@
 //
 //  ViewController.swift
-//  FourColorBoxes
+//  Wuacamole
 //
 //  Created by Mersad Meyfour Asadi on 06/10/2020.
 //
