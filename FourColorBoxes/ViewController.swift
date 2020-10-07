@@ -23,7 +23,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var downRightMole: UIImageView!
     @IBOutlet weak var winLabel: UILabel!
     @IBOutlet weak var loseLabel: UILabel!
-    @IBOutlet weak var sliderValueChanger: UISlider!
+    @IBOutlet weak var slider: UISlider!
     
     // MARK: State
     
@@ -36,11 +36,19 @@ class ViewController: UIViewController {
     var winCounter = 0
     var loseCounter = 0
     
+    
+    enum MolePosition{
+        case rightUpMole
+        case leftUpMole
+        case rightDownMole
+        case leftDownMole
+        case none
+    }
+    
     // MARK: Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        sliderValueChanger.value = 1
         
         updateUI()
         
@@ -52,50 +60,46 @@ class ViewController: UIViewController {
         
         let number = Int.random(in: 1...4)
         clockWise = Bool.random()
-        rightUpMole = false
-        leftUpMole = false
-        rightDownMole = false
-        leftDownMole = false
         self.upLeftButton.setBackgroundImage(nil, for: .normal)
         self.upRightButton.setBackgroundImage(nil, for: .normal)
         self.downRightButton.setBackgroundImage(nil, for: .normal)
         self.downLeftButton.setBackgroundImage(nil, for: .normal)
-        winLabel.text = "\(winCounter)"
-        loseLabel.text = "\(loseCounter)"
+        winLabel.text = "Win: \(winCounter)"
+        loseLabel.text = "Lose: \(loseCounter)"
+        booleanMole(molePosition: .none)
         
         switch number {
-        case 1:
-            self.upLeftButton.setBackgroundImage(#imageLiteral(resourceName: "mole"), for: .normal)
-            leftUpMole = true
-        case 2:
-            self.upRightButton.setBackgroundImage(#imageLiteral(resourceName: "mole"), for: .normal)
-            rightUpMole = true
-        case 3:
-            self.downLeftButton.setBackgroundImage(#imageLiteral(resourceName: "mole"), for: .normal)
-            leftDownMole = true
-        case 4:
-            self.downRightButton.setBackgroundImage(#imageLiteral(resourceName: "mole"), for: .normal)
-            rightDownMole = true
-            
-        default:
-            break
-            
+            case 1:
+                self.upLeftButton.setBackgroundImage(#imageLiteral(resourceName: "mole"), for: .normal)
+                booleanMole(molePosition: .leftUpMole)
+            case 2:
+                self.upRightButton.setBackgroundImage(#imageLiteral(resourceName: "mole"), for: .normal)
+                booleanMole(molePosition: .rightUpMole)
+            case 3:
+                self.downLeftButton.setBackgroundImage(#imageLiteral(resourceName: "mole"), for: .normal)
+                booleanMole(molePosition: .leftDownMole)
+            case 4:
+                self.downRightButton.setBackgroundImage(#imageLiteral(resourceName: "mole"), for: .normal)
+                booleanMole(molePosition: .rightDownMole)
+            default:
+                break
+                
         }
-        
-        clockWise ? (textLable.text = "Go clockwise !!") : (textLable.text = "Go counterclockwise !!")
         
         switch squareColor.location {
-        case .upLeft:
-            squareColor.clockWise ? (upRightButton.backgroundColor = getRandomColor()) : (downLeftButton.backgroundColor = getRandomColor())
-        case .upRight:
-            squareColor.clockWise ? (downRightButton.backgroundColor = getRandomColor()) : (upLeftButton.backgroundColor = getRandomColor())
-        case .downLeft:
-            squareColor.clockWise ? (upLeftButton.backgroundColor = getRandomColor()) : (downRightButton.backgroundColor = getRandomColor())
-        case .downRight:
-            squareColor.clockWise ? (downLeftButton.backgroundColor = getRandomColor()) : (upRightButton.backgroundColor = getRandomColor())
-        default :break
+            case .upLeft:
+                squareColor.clockWise ? (upRightButton.backgroundColor = getRandomColor()) : (downLeftButton.backgroundColor = getRandomColor())
+            case .upRight:
+                squareColor.clockWise ? (downRightButton.backgroundColor = getRandomColor()) : (upLeftButton.backgroundColor = getRandomColor())
+            case .downLeft:
+                squareColor.clockWise ? (upLeftButton.backgroundColor = getRandomColor()) : (downRightButton.backgroundColor = getRandomColor())
+            case .downRight:
+                squareColor.clockWise ? (downLeftButton.backgroundColor = getRandomColor()) : (upRightButton.backgroundColor = getRandomColor())
+            default :break
         }
+        clockWise ? (textLable.text = "Go clockwise !!↩️ ") : (textLable.text = "Go counterclockwise !!↪️")
         squareColor = ColoredSquare.init(location: .notSelected, isToggled: false, clockWise: clockWise)
+        slider.minimumTrackTintColor = getRandomColor()
     }
     
     func getRandomColor() -> UIColor {
@@ -104,7 +108,26 @@ class ViewController: UIViewController {
         let green:CGFloat = CGFloat(drand48())
         let blue:CGFloat = CGFloat(drand48())
         
-        return UIColor(red:red, green: green, blue: blue, alpha: 1.0)
+        return UIColor(red: red, green: green, blue: blue, alpha: 1.0)
+    }
+    
+    func booleanMole(molePosition: MolePosition){
+        
+        switch molePosition {
+            case .rightUpMole:
+                rightUpMole = true
+            case .leftUpMole:
+                leftUpMole = true
+            case .rightDownMole:
+                rightDownMole = true
+            case .leftDownMole:
+                leftDownMole = true
+            default:
+                rightUpMole = false
+                leftUpMole = false
+                rightDownMole = false
+                leftDownMole = false
+        }
     }
     
     // MARK: Action
@@ -134,10 +157,10 @@ class ViewController: UIViewController {
     @IBAction func didTappedDownLeftButton(_ sender: UIButton) {
         squareColor = ColoredSquare.init(location: .downLeft, isToggled: true, clockWise: clockWise)
         if  (leftUpMole && clockWise) || (rightDownMole && !clockWise) {
-            print("acierto")
+            print("acierto 🥳")
             winCounter += 1
         } else {
-            print("fallo")
+            print("fallo 🥺")
             loseCounter += 1
         }
         updateUI()
@@ -145,10 +168,10 @@ class ViewController: UIViewController {
     @IBAction func didTappedDownRightButton(_ sender: UIButton) {
         squareColor = ColoredSquare.init(location: .downRight, isToggled: true, clockWise: clockWise)
         if  (leftDownMole && clockWise) || (rightUpMole && !clockWise) {
-            print("acierto")
+            print("acierto 🥳")
             winCounter += 1
         } else {
-            print("fallo")
+            print("fallo 🥺")
             loseCounter += 1
         }
         updateUI()
@@ -159,9 +182,14 @@ class ViewController: UIViewController {
         updateUI()
     }
     @IBAction func didMoveSlider(_ sender: UISlider) {
-        print(sliderValueChanger.value)
-        changeDireccionButton.alpha = CGFloat(sliderValueChanger.value)
-        
+        changeDireccionButton.alpha = CGFloat(slider.value)
+        //print(slider.value)
+        let number = Int(slider.value*100)
+        print(number)
+        if number % 20 == 0 {
+            print(number)
+            slider.minimumTrackTintColor = getRandomColor()
+        }
     }
     
 }
