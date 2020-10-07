@@ -23,6 +23,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var downRightMole: UIImageView!
     @IBOutlet weak var winLabel: UILabel!
     @IBOutlet weak var loseLabel: UILabel!
+    @IBOutlet weak var sliderValueChanger: UISlider!
     
     // MARK: State
     
@@ -34,10 +35,12 @@ class ViewController: UIViewController {
     var rightDownMole = false
     var winCounter = 0
     var loseCounter = 0
+    
     // MARK: Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        sliderValueChanger.value = 1
         
         updateUI()
         
@@ -59,6 +62,7 @@ class ViewController: UIViewController {
         self.downLeftButton.setBackgroundImage(nil, for: .normal)
         winLabel.text = "\(winCounter)"
         loseLabel.text = "\(loseCounter)"
+        
         switch number {
         case 1:
             self.upLeftButton.setBackgroundImage(#imageLiteral(resourceName: "mole"), for: .normal)
@@ -77,6 +81,7 @@ class ViewController: UIViewController {
             break
             
         }
+        
         clockWise ? (textLable.text = "Go clockwise !!") : (textLable.text = "Go counterclockwise !!")
         
         switch squareColor.location {
@@ -152,6 +157,11 @@ class ViewController: UIViewController {
         winCounter = 0
         loseCounter = 0
         updateUI()
+    }
+    @IBAction func didMoveSlider(_ sender: UISlider) {
+        print(sliderValueChanger.value)
+        changeDireccionButton.alpha = CGFloat(sliderValueChanger.value)
+        
     }
     
 }

@@ -3,6 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -149,11 +150,20 @@
                                     <constraint firstItem="PcK-vy-mMR" firstAttribute="width" secondItem="jvd-rm-diC" secondAttribute="width" id="qg1-Cz-kYA"/>
                                 </constraints>
                             </stackView>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="4x5-Pm-H9l">
+                                <rect key="frame" x="14" y="816" width="386" height="31"/>
+                                <color key="minimumTrackTintColor" name="AccentColor"/>
+                                <connections>
+                                    <action selector="didMoveSlider:" destination="BYZ-38-t0r" eventType="valueChanged" id="eWd-2k-euS"/>
+                                </connections>
+                            </slider>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" systemColor="systemGray6Color"/>
                         <constraints>
                             <constraint firstItem="ibH-0j-2h2" firstAttribute="top" secondItem="tK1-LL-hr6" secondAttribute="bottom" constant="16" id="24D-XY-5Ox"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="4x5-Pm-H9l" secondAttribute="bottom" constant="16" id="34x-j8-5g6"/>
+                            <constraint firstItem="4x5-Pm-H9l" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="8bk-kC-wkO"/>
                             <constraint firstItem="vOm-Ov-lhD" firstAttribute="top" secondItem="9vd-Bx-L95" secondAttribute="bottom" constant="16" id="C1y-5G-RqY"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ZuE-QS-0uq" secondAttribute="trailing" constant="16" id="Esw-yK-qeR"/>
                             <constraint firstItem="vOm-Ov-lhD" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="Iig-Cm-Zo5"/>
@@ -163,6 +173,7 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="vOm-Ov-lhD" secondAttribute="trailing" constant="16" id="eSJ-RJ-6ik"/>
                             <constraint firstItem="tK1-LL-hr6" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="n8w-te-ZzD"/>
                             <constraint firstItem="ibH-0j-2h2" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="ocO-GC-vlp"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="4x5-Pm-H9l" secondAttribute="trailing" constant="16" id="oxX-vB-mRv"/>
                             <constraint firstItem="9vd-Bx-L95" firstAttribute="top" secondItem="ibH-0j-2h2" secondAttribute="bottom" constant="16" id="p3i-Ep-lpS"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="9vd-Bx-L95" secondAttribute="trailing" constant="16" id="py6-us-nep"/>
                             <constraint firstItem="tK1-LL-hr6" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="16" id="upu-g0-Ryw"/>
@@ -177,6 +188,7 @@
                         <outlet property="downRightButton" destination="tbW-eA-R0M" id="bAW-HU-yhq"/>
                         <outlet property="downRightMole" destination="8Xq-PK-BF3" id="vDT-QZ-KV5"/>
                         <outlet property="loseLabel" destination="jvd-rm-diC" id="BDW-SX-RxY"/>
+                        <outlet property="sliderValueChanger" destination="4x5-Pm-H9l" id="32f-9h-jhi"/>
                         <outlet property="textLable" destination="ibH-0j-2h2" id="CUj-D7-ZN7"/>
                         <outlet property="upLeftButton" destination="uUc-72-n1W" id="CYu-oB-tW6"/>
                         <outlet property="upLeftMole" destination="T7l-Sm-cBT" id="tM7-jd-qbA"/>
@@ -192,8 +204,11 @@
     </scenes>
     <resources>
         <image name="mole" width="80" height="80"/>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        <namedColor name="AccentColor">
+            <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemGray6Color">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemIndigoColor">
             <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
