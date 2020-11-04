@@ -52,6 +52,8 @@
 		500E5AAE252CA1AA0008A74C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		500E5ABD252CB01F0008A74C /* ColoredSquare.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColoredSquare.swift; sourceTree = "<group>"; };
 		500E5AD1252DADDE0008A74C /* FourColorBoxes.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FourColorBoxes.entitlements; sourceTree = "<group>"; };
+		50299F8F2552251000171170 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		50299F90255226CE00171170 /* Wacamole.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = Wacamole.gif; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +84,8 @@
 		500E5A7E252CA1A90008A74C = {
 			isa = PBXGroup;
 			children = (
+				50299F8F2552251000171170 /* README.md */,
+				50299F90255226CE00171170 /* Wacamole.gif */,
 				500E5A89252CA1A90008A74C /* FourColorBoxes */,
 				500E5AA0252CA1AA0008A74C /* FourColorBoxesTests */,
 				500E5AAB252CA1AA0008A74C /* FourColorBoxesUITests */,
